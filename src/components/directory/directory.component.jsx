@@ -4,13 +4,16 @@ import './directory.styles.scss';
 import { SECTIONS_DATA } from "./directory.data";
 
 const DirectoryComponent = () => {
-  const [sections, setSections] = useState(SECTIONS_DATA);
+  const [sections] = useState(SECTIONS_DATA);
 
   return (
     <div className="directory-menu">
-      {sections.map(section => (
+      {sections.map(({ title, imageUrl, id, size }) => (
         <MenuItemComponent
-          title={section.title}
+          key={id}
+          title={title}
+          imageUrl={imageUrl}
+          size={size}
         />
         ))}
     </div>
